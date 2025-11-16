@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trọng Tín - BIDV Quảng Trị</title>
+
+    <style>
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ====== BIDV COLORS ====== */
+        :root {
+            --bidv-blue: #024282;
+            --bidv-light-blue: #0072CE;
+            --bidv-red: #E30613;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--bidv-blue);
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* ===== HAMBURGER MENU ===== */
+        .menu-icon {
+            font-size: 28px;
+            cursor: pointer;
+            display: block;
+        }
+
+        nav {
+            background: var(--bidv-light-blue);
+            display: none;
+            flex-direction: column;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background: var(--bidv-blue);
+        }
+
+        nav.active {
+            display: flex;
+        }
+
+        /* ===== BANNER ===== */
+        .banner {
+            height: 200px;
+            background: url('https://picsum.photos/seed/bidv/1400/600') center/cover no-repeat;
+        }
+
+        /* ===== CONTENT ===== */
+        .container { padding: 20px; }
+
+        section {
+            background: white;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: var(--bidv-blue);
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        /* ===== PRODUCTS ===== */
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .product {
+            background: #fafafa;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            color: var(--bidv-light-blue);
+            margin: 10px 0;
+        }
+
+        /* ===== FORM ===== */
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 100%;
+            background: var(--bidv-red);
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #c10a12;
+        }
+
+        /* ===== NÚT NỔI ===== */
+        .floating-buttons {
+            position: fixed;
+            right: 18px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 999;
+        }
+
+        .floating-buttons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .zalo { background: #0180C7; }
+        .fb { background: #1877F2; }
+        .hotline { background: #E30613; }
+
+        /* FOOTER */
+        .footer {
+            background: var(--bidv-blue);
+            color: white;
+            text-align: center;
+            padding: 16px;
+            margin-top: 25px;
+        }
+
+        /* ===== SLIDE-IN ANIMATION ===== */
+        .slide-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>Trọng Tín – BIDV Quảng Trị</h1>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <!-- ===== MENU ===== -->
+    <nav id="menu">
+        <a href="#about">Giới thiệu</a>
+        <a href="#products">Sản phẩm</a>
+        <a href="#register">Đăng ký</a>
+        <a href="#contact">Liên hệ</a>
+    </nav>
+
+    <!-- ===== BANNER ===== -->
+    <div class="banner slide-in"></div>
+
+    <div class="container">
+
+        <!-- GIỚI THIỆU -->
+        <section id="about" class="slide-in">
+            <h2>👤 Giới thiệu</h2>
+            <p>Tôi là <strong>Trọng Tín</strong>, nhân viên BIDV Quảng Trị – chuyên tư vấn các giải pháp tài chính như vay vốn, mở thẻ, tiết kiệm…</p>
+        </section>
+
+        <!-- SẢN PHẨM -->
+        <section id="products" class="slide-in">
+            <h2>💼 Sản phẩm & Dịch vụ</h2>
+
+            <div class="product-list">
+
+                <div class="product slide-in">
+                    <img src="https://picsum.photos/seed/vay/400/250">
+                    <h3>Vay tiêu dùng</h3>
+                    <p>Giải ngân nhanh – Lãi suất hấp dẫn – Hồ sơ đơn giản.</p>
+                </div>
+
+                <div class="product slide-in">
+                    <img src="https://picsum.photos/seed/the/400/250">
+                    <h3>Thẻ tín dụng</h3>
+                    <p>Nhiều ưu đãi – Hoàn tiền – Thanh toán tiện lợi.</p>
+                </div>
+
+                <div class="product slide-in">
+                    <img src="https://picsum.photos/seed/tietkiem/400/250">
+                    <h3>Gửi tiết kiệm</h3>
+                    <p>Kỳ hạn linh hoạt – Lãi suất cao – An toàn tuyệt đối.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FORM ĐĂNG KÝ -->
+        <section id="register" class="slide-in">
+            <h2>📝 Đăng ký tư vấn</h2>
+            <form onsubmit="submitForm(); return false;">
+                <input type="text" placeholder="Họ và tên" required>
+                <input type="tel" placeholder="Số điện thoại" required>
+                <textarea rows="4" placeholder="Nội dung cần tư vấn"></textarea>
+                <button type="submit">Gửi thông tin</button>
+            </form>
+        </section>
+
+        <!-- LIÊN HỆ -->
+        <section id="contact" class="slide-in">
+            <h2>📞 Liên hệ trực tiếp</h2>
+            <p><strong>Tên:</strong> Trọng Tín</p>
+            <p><strong>Ngân hàng:</strong> BIDV Quảng Trị</p>
+            <p><strong>Email:</strong> your-email@example.com</p>
+            <p><strong>SĐT:</strong> 0123 456 789</p>
+        </section>
+
+    </div>
+
+    <!-- ===== NÚT NỔI ===== -->
+    <div class="floating-buttons">
+        <a class="zalo" href="https://zalo.me" target="_blank">Z</a>
+        <a class="fb" href="https://facebook.com" target="_blank">f</a>
+        <a class="hotline" href="tel:0123456789">☎</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2025 Trọng Tín – BIDV Quảng Trị | Website cá nhân
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+
+        function submitForm() {
+            alert("Cảm ơn bạn! Thông tin đã được gửi.\nTrọng Tín sẽ liên hệ sớm nhất!");
+        }
+
+        // Hiệu ứng slide-in
+        function revealOnScroll() {
+            let elements = document.querySelectorAll('.slide-in');
+
+            elements.forEach(el => {
+                let position = el.getBoundingClientRect().top;
+                let screenHeight = window.innerHeight;
+
+                if (position < screenHeight - 50) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+
+</body>
+</html>
