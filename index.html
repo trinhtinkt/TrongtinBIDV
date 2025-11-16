@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trịnh Trọng Tín - BIDV Quảng Trị</title>
+    <title>Trọng Tín - BIDV Quảng Trị</title>
 
     <style>
-        /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -16,15 +15,15 @@
             line-height: 1.6;
         }
 
-        /* ====== NEW COLORS ====== */
+        /* ===== MÀU MỚI ===== */
         :root {
-            --teal-dark: #007F7F;      /* xanh ngọc đậm */
-            --teal-light: #00B3B3;     /* xanh ngọc sáng */
-            --red: #E30613;            /* đỏ giữ nguyên */
-            --yellow-bg: #FFF4B0;      /* vàng nhẹ thay màu trắng */
+            --teal-dark: #007F7F;
+            --teal-light: #00B3B3;
+            --red: #E30613;
+            --yellow-bg: #FFF4B0;
         }
 
-        /* ===== HEADER ===== */
+        /* HEADER */
         header {
             background: var(--teal-dark);
             color: var(--yellow-bg);
@@ -34,18 +33,10 @@
             align-items: center;
         }
 
-        header h1 {
-            font-size: 22px;
-            font-weight: bold;
-        }
+        header h1 { font-size: 22px; font-weight: bold; }
+        .menu-icon { font-size: 28px; cursor: pointer; color: var(--yellow-bg); }
 
-        /* ===== MENU ===== */
-        .menu-icon {
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--yellow-bg);
-        }
-
+        /* MENU */
         nav {
             background: var(--teal-light);
             display: none;
@@ -60,16 +51,17 @@
             font-weight: bold;
         }
 
-        nav a:hover {
-            background: var(--teal-dark);
+        nav a:hover { background: var(--teal-dark); }
+        nav.active { display: flex; }
+
+        /* BANNER */
+        .banner {
+            height: 200px;
+            background: url('images/banner.jpg') center/cover no-repeat;
         }
 
-        nav.active {
-        }
-
-        /* ===== CONTENT ===== */
+        /* CONTENT */
         .container { padding: 20px; }
-
         section {
             background: var(--yellow-bg);
             margin-bottom: 25px;
@@ -77,14 +69,13 @@
             border-radius: 10px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
-
         section h2 {
             color: var(--teal-dark);
             margin-bottom: 10px;
             font-size: 22px;
         }
 
-        /* ===== PRODUCTS ===== */
+        /* PRODUCTS */
         .product-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -92,24 +83,16 @@
         }
 
         .product {
-            background: #FFF6C9;    /* vàng nhẹ hơn */
+            background: #FFF6C9;
             border-radius: 10px;
             border: 1px solid #e5d67d;
             padding: 15px;
             text-align: center;
         }
+        .product img { width: 100%; border-radius: 8px; }
+        .product h3 { color: var(--teal-light); margin: 10px 0; }
 
-        .product img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .product h3 {
-            color: var(--teal-light);
-            margin: 10px 0;
-        }
-
-        /* ===== FORM ===== */
+        /* FORM */
         form input, form textarea {
             width: 100%;
             padding: 12px;
@@ -118,7 +101,6 @@
             border-radius: 5px;
             background: #fffde2;
         }
-
         form button {
             width: 100%;
             background: var(--red);
@@ -130,12 +112,9 @@
             font-size: 16px;
             cursor: pointer;
         }
+        form button:hover { background: #c10a12; }
 
-        form button:hover {
-            background: #c10a12;
-        }
-
-        /* ===== FLOATING BUTTONS ===== */
+        /* FLOATING BUTTONS */
         .floating-buttons {
             position: fixed;
             right: 18px;
@@ -145,7 +124,6 @@
             gap: 12px;
             z-index: 999;
         }
-
         .floating-buttons a {
             display: flex;
             justify-content: center;
@@ -158,7 +136,6 @@
             font-size: 26px;
             font-weight: bold;
         }
-
         .zalo { background: #0180C7; }
         .fb { background: #1877F2; }
         .hotline { background: #E30613; }
@@ -172,17 +149,9 @@
             margin-top: 25px;
         }
 
-        /* ===== SLIDE-IN EFFECT ===== */
-        .slide-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .slide-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* SLIDE-IN */
+        .slide-in { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+        .slide-in.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 
@@ -210,88 +179,94 @@
         <!-- GIỚI THIỆU -->
         <section id="about" class="slide-in">
             <h2>👤 Giới thiệu</h2>
-            <p>Tôi là <strong>Trịnh Trọng Tín</strong>, chuyên viên QLKH - BIDV Quảng Trị – sẵn sàng hỗ trợ vay vốn, mở thẻ, gửi tiết kiệm…</p>
+            <p>Tôi là <strong>Trọng Tín</strong>, chuyên viên BIDV Quảng Trị – hỗ trợ vay vốn, mở thẻ, gửi tiết kiệm…</p>
         </section>
 
         <!-- SẢN PHẨM -->
         <section id="products" class="slide-in">
             <h2>💼 Sản phẩm & Dịch vụ</h2>
-
             <div class="product-list">
-
                 <div class="product slide-in">
-                    <h3>Vay tiêu dùng,kinh doanh, nhà ở, mua ô tô,...</h3>
+                    <img src="images/vay.jpg">
+                    <h3>Vay tiêu dùng</h3>
                     <p>Giải ngân nhanh – Thủ tục đơn giản.</p>
                 </div>
-
                 <div class="product slide-in">
+                    <img src="images/the.jpg">
                     <h3>Thẻ tín dụng</h3>
                     <p>Ưu đãi hoàn tiền – Thanh toán tiện lợi.</p>
                 </div>
-
                 <div class="product slide-in">
-                    <h3>Gửi tiết kiệm và nhiều sản phẩm khác</h3>
+                    <img src="images/tietkiem.jpg">
+                    <h3>Gửi tiết kiệm</h3>
                     <p>Lãi suất cao – An toàn tuyệt đối.</p>
                 </div>
-
             </div>
         </section>
 
         <!-- FORM ĐĂNG KÝ -->
-        <form action="https://formsubmit.co/trinhtinkt@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    
-    <input type="text" name="Họ tên" placeholder="Họ và tên" required>
-    <input type="tel" name="Số điện thoại" placeholder="Số điện thoại" required>
-    <textarea name="Nội dung" placeholder="Nội dung cần tư vấn" rows="4"></textarea>
+        <section id="register" class="slide-in">
+            <h2>📝 Đăng ký tư vấn</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Họ và tên" required>
+                <input type="tel" name="phone" placeholder="Số điện thoại" required>
+                <textarea name="message" placeholder="Nội dung cần tư vấn" rows="4"></textarea>
+                <button type="submit">Gửi thông tin</button>
+            </form>
+        </section>
 
-    <button type="submit">Gửi thông tin</button>
-</form>
         <!-- LIÊN HỆ -->
         <section id="contact" class="slide-in">
             <h2>📞 Liên hệ trực tiếp</h2>
-            <p><strong>Tên:</strong> Trịnh Trọng Tín</p>
-            <p><strong>Ngân hàng:</strong> BIDV Quảng Trị PGD Thành Cổ</p>
-            <p><strong>Email:</strong> tintt1@bidv.com.vn</p>
-            <p><strong>SĐT:</strong> 0905 639 959</p>
+            <p><strong>Tên:</strong> Trọng Tín</p>
+            <p><strong>Ngân hàng:</strong> BIDV Quảng Trị</p>
+            <p><strong>Email:</strong> your-email@example.com</p>
+            <p><strong>SĐT:</strong> 0123 456 789</p>
         </section>
 
     </div>
 
     <!-- NÚT NỔI -->
     <div class="floating-buttons">
-        <a class="zalo" href="https://zalo.me/0905639959" target="_blank">Z</a>
-        <a class="hotline" href="tel:0905639959">☎</a>
+        <a class="zalo" href="https://zalo.me" target="_blank">Z</a>
+        <a class="fb" href="https://facebook.com" target="_blank">f</a>
+        <a class="hotline" href="tel:0123456789">☎</a>
     </div>
 
     <!-- FOOTER -->
     <div class="footer">
-        © 2025 Trọng Tín BIDV | Website cá nhân
+        © 2025 Trọng Tín – BIDV Quảng Trị | Website cá nhân
     </div>
 
     <!-- JAVASCRIPT -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
+        (function(){ emailjs.init("YOUR_USER_ID"); })(); // Thay YOUR_USER_ID bằng User ID EmailJS
+
         function toggleMenu() {
             document.getElementById("menu").classList.toggle("active");
         }
 
-        function submitForm() {
-            alert("Cảm ơn bạn! Thông tin đã được gửi.\n Tôi sẽ liên hệ sớm nhất!");
-        }
+        document.getElementById('contact-form').addEventListener('submit', function(event){
+            event.preventDefault();
+            emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID', this)
+            .then(function(){
+                alert('Cảm ơn bạn! Thông tin đã được gửi.');
+                document.getElementById('contact-form').reset();
+            }, function(error){
+                alert('Gửi thất bại! Vui lòng thử lại.\n'+JSON.stringify(error));
+            });
+        });
 
+        // Slide-in animation
         function revealOnScroll() {
             let elements = document.querySelectorAll('.slide-in');
-
             elements.forEach(el => {
-                let position = el.getBoundingClientRect().top;
-                let screenHeight = window.innerHeight;
-
-                if (position < screenHeight - 50) {
+                if(el.getBoundingClientRect().top < window.innerHeight - 50){
                     el.classList.add('active');
                 }
             });
         }
-
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
     </script>
